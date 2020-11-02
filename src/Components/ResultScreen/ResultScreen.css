@@ -1,29 +1,34 @@
 .result-screen {
-  width: 100%;
+  width: 90%;
   height: 20%;
-  background-color: lightgray;
+  background-color: #495057;
   display: flex;
   justify-content: space-between;
-
+  align-self: center;
+  margin-top: 5%;
+  border: 4px solid #001523;
+  border-radius: 5px;
 }
 
 .input-display {
-  font-size: 3em;
+  font-size: 3.5em;
   align-self: flex-end;
   margin: 2%;
+  color: #e5e5e5;
 }
 
 .shadow-result {
   justify-self: flex-end;
-  font-size: 2em;
+  font-size: 2.5em;
   margin: 2%;
 }
 
 .result {
   justify-self: flex-end;
   align-self: flex-end;
-  font-size: 3em;
+  font-size: 3.5em;
   margin: 2%;
+  color: #e5e5e5;
 }
 
 .hidden {
