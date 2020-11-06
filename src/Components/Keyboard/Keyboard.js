@@ -12,9 +12,9 @@ const Keyboard = ({
   updateCalculations, }) => {
 
   const evaluate = async () => {
-    let result = calculate()
+    let result = calculate();
     let updatedCalculations = await storeResult(result, currentSequence);
-    updateCalculations(updatedCalculations)
+    updateCalculations(updatedCalculations);
   }
 
   const grabKey = (e) => {
@@ -23,27 +23,27 @@ const Keyboard = ({
   }
 
   const handleNumber = async (e) => {
-    let key = grabKey(e)
+    let key = grabKey(e);
     clearResult();
     await storeKey(key);
     var regex = /\d/g;
-    shadowTest(regex)
+    shadowTest(regex);
   }
 
   const handleSymbol = (e) => {
-    let key = grabKey(e)
+    let key = grabKey(e);
     storeKey(key, true);
   }
 
   const shadowTest = (regex) => {
-    let stringedSequence = currentSequence.toString()
+    let stringedSequence = currentSequence.toString();
     if(stringedSequence.includes('(') && !stringedSequence.includes((')'))) {
-      return currentSequence
+      return currentSequence;
     }
 
     if(regex.test(currentSequence)) {
       let result = calculate();
-      updateShadow(result)
+      updateShadow(result);
     }
   }
 
@@ -86,4 +86,4 @@ const Keyboard = ({
   )
 }
 
-export default Keyboard
+export default Keyboard;

@@ -6,7 +6,6 @@
   background-image: url('https://i0.wp.com/robotgalaxykids.co/wp-content/uploads/revslider/original-home1/banner_bg-2.jpg?ssl=1');
   background-position: center;
   background-size: cover;
-  
 }
 
 .components {
@@ -16,14 +15,4 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-h1 {
-  color: #e5e5e5;
-  font-size: 2.75em;
-  margin-top: 2%;
-  margin-bottom: 0;
-  background-color:rgba(127,127,127,0.3);
-  border-radius: 5px;
-  padding: 1%;
 }

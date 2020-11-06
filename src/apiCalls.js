@@ -5,7 +5,7 @@ export const fetchCalculations = async () => {
 }
 
 export const addCalculation = async (calculation) => {
-  calculation = {"sequence": calculation}
+  calculation = {"sequence": calculation};
   try {
     const response = await fetch(
       "https://calculation-station.herokuapp.com/addCalculation",
@@ -14,11 +14,10 @@ export const addCalculation = async (calculation) => {
         headers: {
           "Content-Type": "application/json;charset=utf-8",
         },
-        body: JSON.stringify(calculation)
+        body: JSON.stringify(calculation),
       }
     );
     const calculationsResponse = await response.json(calculation);
-    console.log(calculationsResponse)
     return calculationsResponse;
   } catch (error) {
     console.error(error);

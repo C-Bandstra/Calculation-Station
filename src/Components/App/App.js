@@ -1,36 +1,33 @@
 import React, { Component } from 'react';
 import CalculationBoard from '../CalculationBoard/CalculationBoard';
-import Calculator from "../Calculator/Calculator"
-import { fetchCalculations } from '../../apiCalls'
+import Calculator from "../Calculator/Calculator";
+import { fetchCalculations } from '../../apiCalls';
 import './App.css';
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       fetchedCalculations: [],
     }
   }
   
-
   componentDidMount = async () => {
-    const calculations = await fetchCalculations()
+    const calculations = await fetchCalculations();
     this.setState({
-      fetchedCalculations: calculations
+      fetchedCalculations: calculations,
     })
   }
 
   updateCalculations = (updatedCalculations) => {
     this.setState({
-      fetchedCalculations: updatedCalculations.calculations
+      fetchedCalculations: updatedCalculations.calculations,
     })
   }
-
 
   render() {
     return (
       <div className="App">
-        {/* <h1>Calculation Station</h1> */}
         <section className="components">
           <CalculationBoard currentState={this.state}/>
           <Calculator updateCalculations={this.updateCalculations}/>

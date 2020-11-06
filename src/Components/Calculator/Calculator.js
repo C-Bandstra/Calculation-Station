@@ -4,9 +4,9 @@
 
 import React, { Component } from 'react';
 import './Calculator.css';
-import Keyboard from "../Keyboard/Keyboard"
-import ResultScreen from "../ResultScreen/ResultScreen"
-import { addCalculation } from '../../apiCalls'
+import Keyboard from "../Keyboard/Keyboard";
+import ResultScreen from "../ResultScreen/ResultScreen";
+import { addCalculation } from '../../apiCalls';
 
 const Parser = require('expr-eval').Parser;
 
@@ -29,26 +29,26 @@ class Calculator extends Component {
   }
 
   beautifyResult = (result) => {
-    result = result.toFixed(3)
-    result = result % 1 === 0 ? Math.trunc(result) : result
-    return result
+    result = result.toFixed(3);
+    result = result % 1 === 0 ? Math.trunc(result) : result;
+    return result;
   }
 
   beautifySequence = (sequence) => {
     const beautifiedSequence = sequence.split('').join(' ');
-    return beautifiedSequence
+    return beautifiedSequence;
   }
 
   calculate = () => {
     let sequence = this.state.currentSequence
-    sequence = this.replaceChar(sequence, 'x', '*')
-    sequence = this.replaceChar(sequence, '÷', '/')
-    let result = Parser.evaluate(sequence)
-    if(result == 'Infinity') {
-      result = 0
+    sequence = this.replaceChar(sequence, 'x', '*');
+    sequence = this.replaceChar(sequence, '÷', '/');
+    let result = Parser.evaluate(sequence);
+    if(result === 'Infinity') {
+      result = 0;
     }
-    result = this.beautifyResult(result)
-    return result
+    result = this.beautifyResult(result);
+    return result;
   }
 
   clearResult = () => {
@@ -62,30 +62,30 @@ class Calculator extends Component {
       let index = sequence.indexOf(oldChar);
       let input = sequence.split('');
       input[index] = newChar;
-      return input.join("")
+      return input.join('');
     }
   }
 
   sendCalculation = async (result, sequence) => {
-    sequence = this.beautifySequence(sequence)
-    const calculation = `${sequence} = ${result}`
-    const calculations = await addCalculation(calculation)
-    return calculations
+    sequence = this.beautifySequence(sequence);
+    const calculation = `${sequence} = ${result}`;
+    const calculations = await addCalculation(calculation);
+    return calculations;
   }
 
   storeKey = (clickedKey, symbol) => {
-    let currentState = this.state.currentSequence
-    let updatedState = this.checkSequence(currentState, clickedKey, symbol)
+    let currentState = this.state.currentSequence;
+    let updatedState = this.checkSequence(currentState, clickedKey, symbol);
     this.setState({
       currentSequence: updatedState
     })
   }
 
   checkSequence = (currentState, clickedKey, symbol) => {
-    if(symbol || this.state.result != this.state.currentSequence) {
-      return currentState += clickedKey
+    if(symbol || this.state.result !== this.state.currentSequence) {
+      return currentState += clickedKey;
     } else {
-      return clickedKey
+      return clickedKey;
     }
   }
 
@@ -94,8 +94,8 @@ class Calculator extends Component {
       currentSequence: result,
       result: result
     })
-    const calculations = this.sendCalculation(result, sequence)
-    return calculations
+    const calculations = this.sendCalculation(result, sequence);
+    return calculations;
   }
 
   updateShadow = (shadowResult) => {
@@ -114,4 +114,4 @@ class Calculator extends Component {
   }
 }
 
-export default Calculator
+export default Calculator;
