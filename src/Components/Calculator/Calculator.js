@@ -44,7 +44,7 @@ class Calculator extends Component {
     sequence = this.replaceChar(sequence, 'x', '*');
     sequence = this.replaceChar(sequence, '÷', '/');
     let result = Parser.evaluate(sequence);
-    if(result === 'Infinity') {
+    if(result == 'Infinity') {
       result = 0;
     }
     result = this.beautifyResult(result);
