@@ -8,11 +8,13 @@ const Keyboard = ({
   storeResult,
   calculate,
   allClear,
-  storeKey }) => {
+  storeKey,
+  updateCalculations, }) => {
 
-  const evaluate = () => {
+  const evaluate = async () => {
     let result = calculate()
-    storeResult(result)
+    let updatedCalculations = await storeResult(result, currentSequence);
+    updateCalculations(updatedCalculations)
   }
 
   const grabKey = (e) => {
@@ -22,6 +24,7 @@ const Keyboard = ({
 
   const handleNumber = async (e) => {
     let key = grabKey(e)
+    clearResult();
     await storeKey(key);
     var regex = /\d/g;
     shadowTest(regex)
@@ -29,12 +32,12 @@ const Keyboard = ({
 
   const handleSymbol = (e) => {
     let key = grabKey(e)
-    storeKey(key);
-    clearResult()
+    storeKey(key, true);
   }
 
   const shadowTest = (regex) => {
-    if(currentSequence.includes('(') && !currentSequence.includes(')')) {
+    let stringedSequence = currentSequence.toString()
+    if(stringedSequence.includes('(') && !stringedSequence.includes((')'))) {
       return currentSequence
     }
 
