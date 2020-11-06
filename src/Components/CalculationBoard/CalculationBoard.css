@@ -1,0 +1,27 @@
+.calculation-board {
+  width: 65%;
+  height: 20%;
+  background-color: black;
+  border: 7px solid black;
+  display: grid;
+  grid-auto-flow: dense;
+  place-items: center;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  border-left: none;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.border {
+  width: 92%;
+  height: 92%;
+  background-color: black;
+  border: 1em solid #0077b6;
+  border-left: none;
+}
+
+.hi {
+  font-size: 16px;
+  color: white;
+  margin: 1%;
+}

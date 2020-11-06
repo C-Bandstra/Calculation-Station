@@ -2,12 +2,20 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   background-image: url('https://i0.wp.com/robotgalaxykids.co/wp-content/uploads/revslider/original-home1/banner_bg-2.jpg?ssl=1');
   background-position: center;
   background-size: cover;
-  /* justify-content: space-around; */
+  
+}
+
+.components {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
