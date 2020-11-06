@@ -22,11 +22,11 @@
   place-items: center;
   grid-template-columns: 20% 20% 20% 20% 20%;
   border-radius: 5px;
-  align-items: center;
   position: relative;
 }
 
 .calc-box {
   width: 100%;
   height: 40%;
+  text-align: center;
 }

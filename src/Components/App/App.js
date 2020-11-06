@@ -13,15 +13,21 @@ class App extends Component {
   }
   
   componentDidMount = async () => {
+    this.startLiveUpdate()
     const calculations = await fetchCalculations();
-    this.setState({
-      fetchedCalculations: calculations,
-    })
+    this.startFetch(calculations)
   }
 
-  updateCalculations = (updatedCalculations) => {
+  startLiveUpdate = () => {
+    setInterval(async () => {
+      const calculations = await fetchCalculations()
+      this.startFetch(calculations)
+    }, 3000)
+  }
+
+  startFetch = (calculations) => {
     this.setState({
-      fetchedCalculations: updatedCalculations.calculations,
+      fetchedCalculations: calculations,
     })
   }
 
@@ -30,7 +36,7 @@ class App extends Component {
       <div className="App">
         <section className="components">
           <CalculationBoard currentState={this.state}/>
-          <Calculator updateCalculations={this.updateCalculations}/>
+          <Calculator updateCalculations={this.startFetch}/>
         </section>
       </div>
     );

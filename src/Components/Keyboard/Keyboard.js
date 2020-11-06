@@ -14,7 +14,7 @@ const Keyboard = ({
   const evaluate = async () => {
     let result = calculate();
     let updatedCalculations = await storeResult(result, currentSequence);
-    updateCalculations(updatedCalculations);
+    updateCalculations(updatedCalculations.calculations);
   }
 
   const grabKey = (e) => {
