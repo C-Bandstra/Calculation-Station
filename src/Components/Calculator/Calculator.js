@@ -77,7 +77,7 @@ class Calculator extends Component {
     let currentState = this.state.currentSequence;
     let updatedState = this.checkSequence(currentState, clickedKey, symbol);
     this.setState({
-      currentSequence: updatedState
+      currentSequence: updatedState,
     })
   }
 
@@ -95,6 +95,7 @@ class Calculator extends Component {
       result: result
     })
     const calculations = this.sendCalculation(result, sequence);
+    this.clearResult()
     return calculations;
   }
 
