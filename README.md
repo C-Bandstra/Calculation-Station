@@ -17,7 +17,7 @@ https://c-bandstra.github.io/Calculation-Station/
 ## Added Features/Technologies
 
 Shadow Result - The calculator gives you a hint on what your calculation will equal, without having to click the "=" button.
-Node/Express API - Designed my own simple REST API which allows me to store the user calculations and display them across the board.
+[Node/Express API](https://github.com/C-Bandstra/Calculation-Station-API) - Designed my own simple REST API which allows me to store the user calculations and display them across the board.
 
 ## Looking Ahead
 
