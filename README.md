@@ -7,7 +7,6 @@ I was given a code challenge that asked me to build a calculator web app. The ca
 ## Technologies Used
 
 - React
-- Fetch
 - CSS
 
 ## Try out the deployed app!
